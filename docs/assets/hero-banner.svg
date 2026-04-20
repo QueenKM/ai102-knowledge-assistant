@@ -1,0 +1,95 @@
+<svg width="1280" height="640" viewBox="0 0 1280 640" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="80" y1="40" x2="1160" y2="600" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B7D74"/>
+      <stop offset="0.5" stop-color="#127C9E"/>
+      <stop offset="1" stop-color="#F28C38"/>
+    </linearGradient>
+    <radialGradient id="glowA" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(220 124) rotate(35) scale(330 220)">
+      <stop stop-color="#FFF4B2"/>
+      <stop offset="1" stop-color="#FFF4B2" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowB" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1080 480) rotate(12) scale(360 250)">
+      <stop stop-color="#E7F9FF"/>
+      <stop offset="1" stop-color="#E7F9FF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="panel" x1="300" y1="138" x2="1030" y2="520" gradientUnits="userSpaceOnUse">
+      <stop stop-color="white" stop-opacity="0.86"/>
+      <stop offset="1" stop-color="white" stop-opacity="0.58"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1280" height="640" rx="36" fill="url(#bg)"/>
+  <rect width="1280" height="640" rx="36" fill="url(#glowA)"/>
+  <rect width="1280" height="640" rx="36" fill="url(#glowB)"/>
+
+  <circle cx="1008" cy="164" r="92" fill="white" fill-opacity="0.11"/>
+  <circle cx="1118" cy="230" r="18" fill="white" fill-opacity="0.55"/>
+  <circle cx="120" cy="508" r="22" fill="white" fill-opacity="0.45"/>
+  <path d="M102 494C188 380 258 328 390 314" stroke="white" stroke-opacity="0.22" stroke-width="3"/>
+  <path d="M950 186C1030 202 1094 244 1170 330" stroke="white" stroke-opacity="0.24" stroke-width="3"/>
+
+  <rect x="92" y="78" width="1096" height="484" rx="28" fill="url(#panel)" stroke="white" stroke-opacity="0.38"/>
+
+  <text x="148" y="166" fill="#0B665F" font-family="'Avenir Next', 'Trebuchet MS', sans-serif" font-size="28" font-weight="700" letter-spacing="6">
+    STANDALONE AI-102 SHOWCASE
+  </text>
+  <text x="146" y="256" fill="#17383D" font-family="'Avenir Next', 'Trebuchet MS', sans-serif" font-size="72" font-weight="800">
+    Knowledge Assistant
+  </text>
+  <text x="148" y="320" fill="#37545A" font-family="'Avenir Next', 'Trebuchet MS', sans-serif" font-size="28" font-weight="500">
+    Document ingestion, Azure AI Search, Azure OpenAI,
+  </text>
+  <text x="148" y="360" fill="#37545A" font-family="'Avenir Next', 'Trebuchet MS', sans-serif" font-size="28" font-weight="500">
+    grounded answers, citations, and safety guardrails.
+  </text>
+
+  <rect x="148" y="410" width="176" height="52" rx="26" fill="#0B7D74"/>
+  <text x="182" y="443" fill="white" font-family="'Avenir Next', 'Trebuchet MS', sans-serif" font-size="24" font-weight="700">
+    LOCAL MODE
+  </text>
+
+  <rect x="344" y="410" width="186" height="52" rx="26" fill="#156CBE"/>
+  <text x="380" y="443" fill="white" font-family="'Avenir Next', 'Trebuchet MS', sans-serif" font-size="24" font-weight="700">
+    AZURE MODE
+  </text>
+
+  <g opacity="0.96">
+    <rect x="768" y="138" width="332" height="284" rx="24" fill="#F8FBFC"/>
+    <rect x="796" y="176" width="200" height="18" rx="9" fill="#0B7D74" fill-opacity="0.24"/>
+    <rect x="796" y="212" width="256" height="14" rx="7" fill="#597175" fill-opacity="0.18"/>
+    <rect x="796" y="238" width="228" height="14" rx="7" fill="#597175" fill-opacity="0.18"/>
+    <rect x="796" y="286" width="278" height="72" rx="18" fill="#E8F6F4"/>
+    <rect x="814" y="304" width="162" height="14" rx="7" fill="#0B7D74" fill-opacity="0.26"/>
+    <rect x="814" y="330" width="224" height="12" rx="6" fill="#597175" fill-opacity="0.18"/>
+
+    <rect x="720" y="262" width="196" height="108" rx="22" fill="#17383D"/>
+    <text x="742" y="302" fill="#EAF4F6" font-family="'SF Mono', 'Menlo', monospace" font-size="20" font-weight="600">
+      /api/ask
+    </text>
+    <text x="742" y="334" fill="#9CD7D1" font-family="'SF Mono', 'Menlo', monospace" font-size="18" font-weight="500">
+      grounded answer
+    </text>
+
+    <path d="M916 316H952" stroke="#F28C38" stroke-width="6" stroke-linecap="round"/>
+    <path d="M944 304L960 316L944 328" stroke="#F28C38" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <g opacity="0.9">
+    <rect x="800" y="454" width="112" height="34" rx="17" fill="#0B7D74"/>
+    <text x="824" y="477" fill="white" font-family="'Avenir Next', 'Trebuchet MS', sans-serif" font-size="18" font-weight="700">
+      Search
+    </text>
+
+    <rect x="928" y="454" width="112" height="34" rx="17" fill="#156CBE"/>
+    <text x="948" y="477" fill="white" font-family="'Avenir Next', 'Trebuchet MS', sans-serif" font-size="18" font-weight="700">
+      OpenAI
+    </text>
+
+    <rect x="1056" y="454" width="112" height="34" rx="17" fill="#F28C38"/>
+    <text x="1073" y="477" fill="white" font-family="'Avenir Next', 'Trebuchet MS', sans-serif" font-size="18" font-weight="700">
+      Safety
+    </text>
+  </g>
+</svg>
+
