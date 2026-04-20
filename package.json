@@ -1,0 +1,30 @@
+{
+  "name": "ai102-knowledge-assistant",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Standalone AI-102 knowledge assistant with a colorful demo UI, grounded answers, and reproducible preview capture.",
+  "type": "commonjs",
+  "license": "MIT",
+  "scripts": {
+    "capture-preview": "node scripts/capture_app_preview.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/QueenKM/ai102-knowledge-assistant.git"
+  },
+  "bugs": {
+    "url": "https://github.com/QueenKM/ai102-knowledge-assistant/issues"
+  },
+  "homepage": "https://github.com/QueenKM/ai102-knowledge-assistant#readme",
+  "keywords": [
+    "ai-102",
+    "azure-openai",
+    "azure-ai-search",
+    "document-intelligence",
+    "rag",
+    "knowledge-assistant"
+  ],
+  "devDependencies": {
+    "playwright": "^1.59.1"
+  }
+}

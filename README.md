@@ -34,6 +34,10 @@ The sample scenario uses `Nimbus Home`, a fictional smart appliance brand whose 
 - Cloud upgrade path: `Azure AI Search`, `Azure OpenAI`, and `Azure AI Document Intelligence`
 - Recruiter-friendly: clean UI, runnable app, tests, docs, and architecture notes
 
+## App Preview
+
+![AI-102 Knowledge Assistant app preview](docs/assets/app-preview.png)
+
 ## Feature Snapshot
 
 | Area | Included |
@@ -130,6 +134,17 @@ python3 scripts/sync_to_azure_search.py --rebuild
 
 Full setup guide: [docs/azure-setup.md](docs/azure-setup.md)
 
+## Refresh Preview Artifact
+
+To regenerate the GitHub preview screenshot from the live local app:
+
+```bash
+python3 -m app.server
+npm install
+npx playwright install chromium
+npm run capture-preview
+```
+
 ## Demo Questions
 
 - How do I pair the oven with Wi-Fi?
@@ -163,4 +178,3 @@ The last question intentionally demonstrates the safety policy.
 ## License
 
 Released under the [MIT License](LICENSE).
-
