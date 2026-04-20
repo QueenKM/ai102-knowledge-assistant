@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI-102 Knowledge Assistant</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero">
+        <p class="eyebrow">Standalone AI-102 Showcase</p>
+        <h1>Knowledge Assistant</h1>
+        <p class="lede">
+          Search support manuals, ask grounded questions, and demo a clean Azure AI style solution
+          without needing cloud dependencies for the MVP.
+        </p>
+        <div id="status-banner" class="status-banner">Loading runtime status...</div>
+      </section>
+
+      <section class="panel">
+        <label for="question">Ask a support question</label>
+        <div class="question-row">
+          <input id="question" type="text" placeholder="How do I reconnect the oven to Wi-Fi?" />
+          <button id="ask-button">Ask</button>
+        </div>
+        <div class="sample-prompts">
+          <button class="chip">How do I pair the oven with Wi-Fi?</button>
+          <button class="chip">What does error E12 mean?</button>
+          <button class="chip">When can a customer request a refund?</button>
+        </div>
+      </section>
+
+      <section class="grid">
+        <article class="panel">
+          <div class="panel-header">
+            <h2>Answer</h2>
+            <button id="rebuild-button" class="secondary">Rebuild / Sync</button>
+          </div>
+          <pre id="answer" class="answer-box">Ask a question to see a grounded answer.</pre>
+        </article>
+
+        <article class="panel">
+          <h2>Citations</h2>
+          <div id="citations" class="list"></div>
+        </article>
+      </section>
+
+      <section class="grid">
+        <article class="panel">
+          <h2>Documents</h2>
+          <div id="documents" class="list"></div>
+        </article>
+
+        <article class="panel">
+          <h2>Search Results</h2>
+          <div id="search-results" class="list"></div>
+        </article>
+      </section>
+    </main>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
