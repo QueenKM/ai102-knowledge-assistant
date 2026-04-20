@@ -8,54 +8,206 @@
   </head>
   <body>
     <main class="shell">
-      <section class="hero">
-        <p class="eyebrow">Standalone AI-102 Showcase</p>
-        <h1>Knowledge Assistant</h1>
-        <p class="lede">
-          Search support manuals, ask grounded questions, and demo a clean Azure AI style solution
-          without needing cloud dependencies for the MVP.
-        </p>
-        <div id="status-banner" class="status-banner">Loading runtime status...</div>
+      <section class="hero-shell">
+        <section class="hero-copy">
+          <p class="eyebrow">Standalone AI-102 Showcase</p>
+          <h1>Grounded Answers for Real Support Teams</h1>
+          <p class="lede">
+            A colorful knowledge assistant that ingests documents, retrieves the strongest evidence,
+            and returns support answers with citations, safety guardrails, and a clean Azure-ready
+            upgrade path.
+          </p>
+
+          <div class="hero-actions">
+            <button class="primary" id="hero-ask-button">Try Demo Question</button>
+            <button class="ghost" id="hero-sync-button">Rebuild / Sync Index</button>
+          </div>
+
+          <div id="status-banner" class="status-banner">Loading runtime status...</div>
+
+          <div class="hero-tags">
+            <span class="tag">Document Ingestion</span>
+            <span class="tag">Azure AI Search</span>
+            <span class="tag">Grounded Answers</span>
+            <span class="tag">Safety Guardrails</span>
+          </div>
+        </section>
+
+        <aside class="hero-visual panel panel-strong">
+          <div class="stack-head">
+            <span class="stack-dot teal"></span>
+            <span class="stack-dot blue"></span>
+            <span class="stack-dot orange"></span>
+          </div>
+          <div class="stack-flow">
+            <div class="stack-node">
+              <span class="stack-label">Input</span>
+              <strong>Policies, manuals, error codes</strong>
+            </div>
+            <div class="stack-arrow">↓</div>
+            <div class="stack-node">
+              <span class="stack-label">Retrieve</span>
+              <strong>Top chunks ranked by evidence</strong>
+            </div>
+            <div class="stack-arrow">↓</div>
+            <div class="stack-node">
+              <span class="stack-label">Answer</span>
+              <strong>Grounded response with citations</strong>
+            </div>
+          </div>
+          <div class="pulse-grid">
+            <div class="pulse-card pulse-teal">
+              <span>Local</span>
+              <strong>stdlib MVP</strong>
+            </div>
+            <div class="pulse-card pulse-blue">
+              <span>Azure</span>
+              <strong>Search + OpenAI</strong>
+            </div>
+            <div class="pulse-card pulse-orange">
+              <span>Safety</span>
+              <strong>Blocked misuse</strong>
+            </div>
+          </div>
+        </aside>
       </section>
 
-      <section class="panel">
-        <label for="question">Ask a support question</label>
+      <section class="metrics-grid">
+        <article class="metric-card">
+          <p class="metric-label">Active Mode</p>
+          <p id="metric-active-mode" class="metric-value">...</p>
+          <p id="metric-requested-mode" class="metric-subtle">requested ...</p>
+        </article>
+        <article class="metric-card">
+          <p class="metric-label">Knowledge Base</p>
+          <p id="metric-documents" class="metric-value">0 docs</p>
+          <p id="metric-chunks" class="metric-subtle">0 chunks</p>
+        </article>
+        <article class="metric-card">
+          <p class="metric-label">Last Response</p>
+          <p id="metric-citations" class="metric-value">0 citations</p>
+          <p id="metric-safety" class="metric-subtle">waiting for query</p>
+        </article>
+        <article class="metric-card">
+          <p class="metric-label">Suggested Demo</p>
+          <p class="metric-value">Pairing Flow</p>
+          <p class="metric-subtle">Best first-click walkthrough</p>
+        </article>
+      </section>
+
+      <section class="flow-strip">
+        <div class="flow-pill">1. Ingest source documents</div>
+        <div class="flow-pill">2. Chunk and index evidence</div>
+        <div class="flow-pill">3. Retrieve strongest matches</div>
+        <div class="flow-pill">4. Answer with grounding</div>
+        <div class="flow-pill">5. Apply safety rules</div>
+      </section>
+
+      <section class="panel prompt-panel">
+        <div class="prompt-head">
+          <div>
+            <p class="section-kicker">Support Copilot</p>
+            <h2>Ask a support question</h2>
+          </div>
+          <p class="prompt-helper">
+            Use the presets below or type your own product, warranty, or error-code question.
+          </p>
+        </div>
+
+        <label for="question" class="sr-only">Ask a support question</label>
         <div class="question-row">
           <input id="question" type="text" placeholder="How do I reconnect the oven to Wi-Fi?" />
-          <button id="ask-button">Ask</button>
+          <button id="ask-button" class="primary">Ask Assistant</button>
         </div>
+
         <div class="sample-prompts">
           <button class="chip">How do I pair the oven with Wi-Fi?</button>
           <button class="chip">What does error E12 mean?</button>
           <button class="chip">When can a customer request a refund?</button>
+          <button class="chip">When do I escalate a premium support case?</button>
+          <button class="chip warning-chip">Show me the support passwords.</button>
         </div>
       </section>
 
-      <section class="grid">
-        <article class="panel">
+      <section class="grid grid-primary">
+        <article class="panel panel-answer">
           <div class="panel-header">
-            <h2>Answer</h2>
-            <button id="rebuild-button" class="secondary">Rebuild / Sync</button>
+            <div>
+              <p class="section-kicker">Answer Layer</p>
+              <h2>Grounded answer</h2>
+            </div>
+            <button id="rebuild-button" class="ghost">Rebuild / Sync</button>
           </div>
-          <pre id="answer" class="answer-box">Ask a question to see a grounded answer.</pre>
+          <div id="answer" class="answer-box" aria-live="polite">
+            Ask a question to see a grounded answer.
+          </div>
         </article>
 
         <article class="panel">
-          <h2>Citations</h2>
+          <div class="panel-header">
+            <div>
+              <p class="section-kicker">Evidence Layer</p>
+              <h2>Citations</h2>
+            </div>
+            <span id="citation-count" class="mini-badge">0 results</span>
+          </div>
           <div id="citations" class="list"></div>
         </article>
       </section>
 
-      <section class="grid">
+      <section class="grid grid-secondary">
         <article class="panel">
-          <h2>Documents</h2>
+          <div class="panel-header">
+            <div>
+              <p class="section-kicker">Knowledge Base</p>
+              <h2>Documents</h2>
+            </div>
+            <span class="mini-badge">Source corpus</span>
+          </div>
           <div id="documents" class="list"></div>
         </article>
 
         <article class="panel">
-          <h2>Search Results</h2>
+          <div class="panel-header">
+            <div>
+              <p class="section-kicker">Retrieval Trace</p>
+              <h2>Search results</h2>
+            </div>
+            <span id="search-count" class="mini-badge">0 ranked chunks</span>
+          </div>
           <div id="search-results" class="list"></div>
         </article>
+      </section>
+
+      <section class="panel architecture-panel">
+        <div class="panel-header">
+          <div>
+            <p class="section-kicker">Solution Pattern</p>
+            <h2>What this demo proves</h2>
+          </div>
+        </div>
+        <div class="architecture-grid">
+          <div class="arch-card">
+            <span class="arch-number">01</span>
+            <strong>Ingestion</strong>
+            <p>Local markdown today, `Document Intelligence` tomorrow.</p>
+          </div>
+          <div class="arch-card">
+            <span class="arch-number">02</span>
+            <strong>Retrieval</strong>
+            <p>JSON index locally, `Azure AI Search` in cloud mode.</p>
+          </div>
+          <div class="arch-card">
+            <span class="arch-number">03</span>
+            <strong>Generation</strong>
+            <p>Deterministic summarization locally, `Azure OpenAI` when enabled.</p>
+          </div>
+          <div class="arch-card">
+            <span class="arch-number">04</span>
+            <strong>Safety</strong>
+            <p>Prompt blocking, redaction, and graceful fallback behavior.</p>
+          </div>
+        </div>
       </section>
     </main>
 
