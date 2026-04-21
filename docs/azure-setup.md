@@ -13,7 +13,7 @@ Switch the project from the default `local` runtime to a cloud-backed `azure` ru
 ## 1. Install Optional Dependencies
 
 ```bash
-cd /Users/kris/Desktop/ai102-knowledge-assistant
+cd path/to/ai102-knowledge-assistant
 python3 -m pip install -r requirements-azure.txt
 ```
 
@@ -83,4 +83,3 @@ If configuration is incomplete, the app falls back to `local` mode and explains 
 - The current Azure AI Search integration uses keyword retrieval over uploaded chunks.
 - The current Azure OpenAI integration grounds the answer on retrieved chunks and returns separate citations in the API response.
 - For a production version, you would typically add authentication, telemetry, abuse monitoring, and stronger content safety.
-

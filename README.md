@@ -74,7 +74,7 @@ More detail: [Architecture Notes](docs/architecture.md)
 Start the local app:
 
 ```bash
-cd /Users/kris/Desktop/ai102-knowledge-assistant
+cd path/to/ai102-knowledge-assistant
 python3 -m app.server
 ```
 
