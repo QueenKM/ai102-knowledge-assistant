@@ -8,8 +8,8 @@ from app.runtime import AssistantRuntime
 def main() -> None:
     runtime = AssistantRuntime()
     cases = [
-        ("What should I do when the BrewMaster Mini shows E12?", "E12"),
-        ("How long is the warranty period?", "warranty"),
+        ("What should I do when the BrewMaster Mini shows E12?", "descale cycle"),
+        ("How long is the warranty period?", "24-month limited warranty"),
         ("Quasars nucleosynthesis?", None),
     ]
     results = []
@@ -27,6 +27,9 @@ def main() -> None:
             "answer": response.answer,
             "citations": citations,
             "expected_evidence_term": evidence,
+            "answer_contains_expected_evidence": (
+                evidence.lower() in response.answer.lower() if evidence is not None else None
+            ),
             "citation_term_match": evidence_match,
             "expected_abstention": evidence is None,
             "returned_without_citations": not citations,
