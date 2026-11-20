@@ -56,11 +56,17 @@ class AssistantRuntime:
             self.note = f"{exc} Falling back to local mode."
 
     def ask(self, question: str, top_k: int) -> AnswerResponse:
+        response, _ = self.ask_with_mode(question, top_k)
+        return response
+
+    def ask_with_mode(self, question: str, top_k: int) -> tuple[AnswerResponse, str]:
+        if self.active_mode != "azure":
+            return self.local_assistant.ask(question, top_k=top_k), "local"
+
         try:
-            return self.assistant.ask(question, top_k=top_k)
-        except Exception as exc:  # pragma: no cover - depends on external services
-            self.note = f"Azure request failed: {exc}. Local fallback is active for this request."
-            return self.local_assistant.ask(question, top_k=top_k)
+            return self.assistant.ask(question, top_k=top_k), "azure"
+        except Exception:
+            return self.local_assistant.ask(question, top_k=top_k), "local"
 
     def search(self, query: str, top_k: int) -> List[SearchResult]:
         if self.active_mode != "azure" or not self.search_store:
