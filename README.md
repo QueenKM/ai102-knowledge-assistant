@@ -145,6 +145,10 @@ npx playwright install chromium
 npm run capture-preview
 ```
 
+## Evaluate sample answers
+
+Run `python3 -m scripts.evaluate_answers` from the repository root. The report shows each answer, its citations, the expected evidence term, and the runtime that handled that question. Check the cited snippets against the answer. A term match is a smoke check for retrieval, and the citations still need review for factual support. Run with the Azure configuration to compare results by runtime.
+
 ## Demo Questions
 
 - How do I pair the oven with Wi-Fi?
