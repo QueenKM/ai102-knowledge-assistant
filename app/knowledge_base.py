@@ -12,6 +12,7 @@ from app.models import Chunk, Document, SearchResult
 
 
 TOKEN_PATTERN = re.compile(r"[a-z0-9]+")
+QUESTION_WORDS = frozenset("a an are can do does for how i in is it of on should the to what when which with".split())
 
 
 def tokenize(text: str) -> List[str]:
@@ -186,7 +187,7 @@ class KnowledgeBase:
         ]
 
     def search(self, query: str, top_k: int = 3) -> List[SearchResult]:
-        query_tokens = tokenize(query)
+        query_tokens = set(tokenize(query)) - QUESTION_WORDS
         if not query_tokens:
             return []
 
@@ -200,7 +201,7 @@ class KnowledgeBase:
             heading_overlap = sum(1 for token in query_tokens if token in tokenize(chunk.heading))
             category_bonus = 1 if chunk.category.lower() in query_text else 0
 
-            score = float((token_overlap * 2) + phrase_bonus + title_overlap + heading_overlap + category_bonus)
+            score = float((token_overlap * 2) + phrase_bonus + title_overlap + (heading_overlap * 4) + category_bonus)
             if score <= 0:
                 continue
 
